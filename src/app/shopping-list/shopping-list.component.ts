@@ -6,7 +6,7 @@ import { ShoppingListService } from './shopping-list.service';
    selector: 'app-shopping-list',
    templateUrl: './shopping-list.component.html',
    styleUrls: ['./shopping-list.component.css'],
-   providers: [ShoppingListService]
+   providers: []
 })
 export class ShoppingListComponent implements OnInit {
    ingredients: Ingredient[] = [];
@@ -17,6 +17,7 @@ export class ShoppingListComponent implements OnInit {
       this.ingredients = this.shoppingListService.getIngredients();
       this.shoppingListService.ingredientsChanged.subscribe((iList: Ingredient[]) => {
          this.ingredients = iList;
+         console.log(this.ingredients);
       });
    }
 }
