@@ -1,0 +1,8 @@
+.error-msg {
+   color: lightcoral;
+   font-size: 0.7em;
+}
+
+input.ng-invalid.ng-touched {
+   border: 1px solid lightcoral;
+}

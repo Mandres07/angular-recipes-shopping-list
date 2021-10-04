@@ -26,4 +26,8 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
          console.log(this.ingredients);
       });
    }
+
+   onEditItem(index: number) {
+      this.shoppingListService.startedEditing.next(index);
+   }
 }
