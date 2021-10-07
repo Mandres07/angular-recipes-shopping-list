@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { BehaviorSubject, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 import { User } from "./user.model";
+import { environment } from "../../environments/environment";
 
 export interface AuthResponseData {
    kind?: string;
@@ -17,9 +18,9 @@ export interface AuthResponseData {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-   apiKey = 'AIzaSyCGHqhsc4odf2UQWZoN3HUgTsZezcaL1oI';
-   signUpUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.apiKey}`;
-   loginUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.apiKey}`
+   apiKey = environment.apiKey;
+   signUpUrl = `${environment.signUpUrl}${this.apiKey}`;
+   loginUrl = `${environment.loginUrl}${this.apiKey}`
    user = new BehaviorSubject<User>(null);
    private tokenTimer: any = null;
 
